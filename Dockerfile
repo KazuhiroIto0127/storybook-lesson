@@ -14,3 +14,4 @@ RUN npm install
 
 # アプリケーションのソースをバンドルする
 COPY . .
+CMD [ "npm", "run", "storybook" ]
