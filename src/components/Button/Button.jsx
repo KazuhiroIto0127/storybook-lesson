@@ -17,6 +17,9 @@ function Button({children, color = 'default', size = 'base', backgroundColor}){
 export default Button;
 
 Button.propTypes = {
+    /**
+     * これはカラーです
+    */
     color: PropTypes.oneOf(['primary', 'default', 'danger']),
     size: PropTypes.oneOf(['sm', 'lg', 'base']),
     // onClick: PropTypes.func.isRequired,

@@ -23,7 +23,29 @@ export default {
         // onClick: {
         //     action: 'clicked',
         // }
-    }
+    },
+    parameters: {
+        layout: 'centered',
+        docs: {
+            description: {
+                component: '説明'
+            }
+        }
+    },
+    // decorators: [
+    //     (Story) => (
+    //         <div
+    //         style={{
+    //             display: 'flex',
+    //             justifyContent: 'center',
+    //             alignItems: 'center',
+    //             height: '100vh',
+    //         }}
+    //         >
+    //             <Story />
+    //         </div>
+    //     )
+    // ]
 };
 const something = action('something');
 
@@ -49,6 +71,15 @@ Primary.args = {
   children: 'Primary',
   color: 'primary',
 };
+Primary.parameters = {
+    backgrounds: {
+        values: [
+            { name : 'red', value: '#f00'},
+            { name : 'green', value: '#0f0'},
+            { name : 'blue', value: '#00f'},
+        ]
+    }
+}
 
 export const PrimarySmall = Template.bind({});
 PrimarySmall.args = {
