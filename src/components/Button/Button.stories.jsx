@@ -1,5 +1,9 @@
 import { action } from '@storybook/addon-actions';
+import { linkTo } from '@storybook/addon-links';
 import Button from './Button'
+import { within } from '@testing-library/dom';
+import userEvent from '@testing-library/user-event';
+import { expect } from '@storybook/jest'
 
 export default {
     title: 'Common/Button',
@@ -25,7 +29,7 @@ const something = action('something');
 
 const Template = (args) => {
     const handleClick = (e) => {
-        something(e, 'test');
+        something();
     }
     return <Button {...args} handleClick={handleClick} />
 };
@@ -54,8 +58,14 @@ PrimarySmall.args = {
 };
 
 export const PrimaryLarge = Template.bind({});
+PrimaryLarge.play = async ({args, canvasElement}) => {
+    const canvas = within(canvasElement);
+    await userEvent.click(canvas.getByRole('button'));
+    // await expect(args.handleClick).toHaveBeenCalled();
+}
 PrimaryLarge.args = {
   children: 'Large',
   color: 'primary',
+  handleClick: something,
   size: 'lg',
 };
